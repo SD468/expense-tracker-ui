@@ -1,14 +1,26 @@
+import { NavLink } from "react-router-dom";
+
 function SideBar() {
-    return ( 
-        <div>
-            <h2>Side Bar</h2>
-            <ul>
-                <li>Dashboard</li>
-                <li>Profile</li>
-                <li>Settings</li>
-            </ul>
-        </div>
-     );
+  const nav = [
+    { to: "/", label: "Dashboard", icon: "📊" },
+    { to: "/transactions", label: "Transactions", icon: "💳" },
+    { to: "/accounts", label: "Bank Accounts", icon: "🏦" },
+    { to: "/notifications", label: "Notifications", icon: "🔔" },
+    { to: "/settings", label: "Settings", icon: "⚙️" },
+  ];
+  return (
+    <div>
+      <div>Lekhajokha</div>
+      <nav>
+        {nav.map((n) => (
+          <NavLink key={n.to} to={n.to}>
+            <span>{n.icon}</span>
+            <span>{n.label}</span>
+          </NavLink>
+        ))}
+      </nav>
+    </div>
+  );
 }
 
 export default SideBar;
